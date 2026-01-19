@@ -1,0 +1,6 @@
+@StringCalculator.Api_HostAddress = http://localhost:5084
+
+GET {{StringCalculator.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

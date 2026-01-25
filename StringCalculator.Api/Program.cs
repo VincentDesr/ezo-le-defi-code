@@ -23,20 +23,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Add request timing middleware
-app.Use(async (context, next) =>
-{
-    var startTime = DateTime.UtcNow;
-    var path = context.Request.Path;
-
-    Console.WriteLine($"[{startTime:HH:mm:ss.fff}] Incoming request: {context.Request.Method} {path}");
-
-    await next();
-
-    var elapsed = (DateTime.UtcNow - startTime).TotalMilliseconds;
-    Console.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] Completed {path} in {elapsed}ms");
-});
-
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {

@@ -23,6 +23,7 @@ bld/
 .vs/
 .vscode/
 .github/
+.claude/
 
 # .NET Core
 project.lock.json

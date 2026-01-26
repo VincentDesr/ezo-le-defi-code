@@ -48,29 +48,6 @@
               <v-icon start>mdi-equal</v-icon>
               Calculate
             </v-btn>
-
-            <!-- Examples Section -->
-            <v-expansion-panels class="mt-4">
-              <v-expansion-panel>
-                <v-expansion-panel-title>
-                  <v-icon start>mdi-lightbulb-outline</v-icon>
-                  Examples
-                </v-expansion-panel-title>
-                <v-expansion-panel-text>
-                  <v-list density="compact">
-                    <v-list-item
-                      v-for="example in examples"
-                      :key="example.expression"
-                      @click="setExample(example.expression)"
-                      class="cursor-pointer"
-                    >
-                      <v-list-item-title>{{ example.expression }}</v-list-item-title>
-                      <v-list-item-subtitle>{{ example.description }}</v-list-item-subtitle>
-                    </v-list-item>
-                  </v-list>
-                </v-expansion-panel-text>
-              </v-expansion-panel>
-            </v-expansion-panels>
           </v-card-text>
         </v-card>
       </v-col>
@@ -90,25 +67,6 @@ const expression = ref<string>('');
 const result = ref<number | null>(null);
 const loading = ref<boolean>(false);
 const errorMessage = ref<string>('');
-
-// Example expressions
-const examples = [
-  { expression: '1 + 2', description: 'Simple addition' },
-  { expression: '2+2*5+5', description: 'Operator precedence' },
-  { expression: '(2+5)*3', description: 'Parentheses' },
-  { expression: '2^8', description: 'Exponentiation' },
-  { expression: 'sqrt(16)+4', description: 'Square root function' },
-  { expression: '2.8*3-1', description: 'Decimal numbers' },
-];
-
-/**
- * Sets an example expression
- */
-const setExample = (exampleExpression: string): void => {
-  expression.value = exampleExpression;
-  clearError();
-  result.value = null;
-};
 
 /**
  * Clears any error messages and result
